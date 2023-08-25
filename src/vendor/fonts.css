@@ -1,0 +1,53 @@
+@font-face {
+  src:
+    url('../assets/fonts/SegoeUI-Bold.woff2') format('woff2'),
+    url('../assets/fonts/SegoeUI-Bold.woff') format('woff');
+  font-family: 'SegoeUI';
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  src:
+    url('../assets/fonts/SegoeUI-BoldItalic.woff2') format('woff2'),
+    url('../assets/fonts/SegoeUI-BoldItalic.woff') format('woff');
+  font-family: 'SegoeUI';
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  src:
+    url('../assets/fonts/SegoeUI-Italic.woff2') format('woff2'),
+    url('../assets/fonts/SegoeUI-Italic.woff') format('woff');
+  font-family: 'SegoeUI';
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  src:
+    url('../assets/fonts/SegoeUI-Light.woff2') format('woff2'),
+    url('../assets/fonts/SegoeUI-Light.woff') format('woff');
+  font-family: 'SegoeUI';
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  src:
+    url('../assets/fonts/SegoeUI-SemiBold.woff2') format('woff2'),
+    url('../assets/fonts/SegoeUI-SemiBold.woff') format('woff');
+  font-family: 'SegoeUI';
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  src:
+    url('../assets/fonts/SegoeUI.woff2') format('woff2'),
+    url('../assets/fonts/SegoeUI.woff') format('woff');
+  font-family: 'SegoeUI';
+  font-weight: 400;
+  font-style: normal;
+}
