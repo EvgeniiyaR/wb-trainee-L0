@@ -11,6 +11,7 @@
   --background-smoky: #F6F6FA;
   --dark-system-coral: #FF3B30;
   --rulers-rulers-input: rgba(0, 0, 0, 0.20);
+  --light-background-nav-bar: #FFF;
 }
 
 .body {
@@ -65,6 +66,10 @@
 .main__checkbox-label {
   display: flex;
   gap: 11px;
+}
+
+.main__checkbox-label_inactive {
+  display: none;
 }
 
 .main__checkbox-input {
@@ -142,6 +147,10 @@
 
 .main__name_type_choose-all {
   width: 827px;
+}
+
+.main__name_type_hidden {
+  font-weight: 600;
 }
 
 .main__button-up {
@@ -230,7 +239,7 @@
 .main__stock,
 .main__company {
   margin: 0;
-  color: var(--system-gray, #A0A0A4);
+  color: var(--system-gray);
   font-size: 13px;
   font-weight: 400;
   line-height: 1.23;
@@ -238,6 +247,7 @@
 
 .main__container-company-info {
   display: flex;
+  position: relative;
 }
 
 .main__info {
@@ -250,9 +260,44 @@
   margin-left: 6px;
 }
 
+.main__info:hover {
+  cursor: pointer;
+}
+
+.main__info-card {
+  display: none;
+}
+
+.main__info:hover + .main__info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  box-sizing: border-box;
+  width: 280px;
+  padding: 11px 16px 13px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+  background-color: var(--light-background-nav-bar);
+}
+
+.main__info-text {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.main__info-text_type_company {
+  font-weight: 700;
+}
+
 .main__container-card-right {
   display: flex;
   gap: 26px;
+  position: relative;
 }
 
 .main__container-count-leftovers-buttons {
@@ -376,5 +421,46 @@
   border-bottom: 1px dashed var(--rulers-rulers-input);
   text-align: right;
   margin-left: auto;
+}
+
+.main__old-price:hover {
+  cursor: pointer;
+}
+
+.main__container-info-card-price {
+  display: none;
+}
+
+.main__old-price:hover + .main__container-info-card-price {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 53px;
+  left: -3px;
+  box-sizing: border-box;
+  width: 239px;
+  padding: 11px 16px 13px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+  background-color: var(--light-background-nav-bar);
+  z-index: 1;
+}
+
+.main__info-price-discount,
+.main__info-price {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main__info-price-text {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.23;
+}
+
+.main__info-price-text_type_discount {
+  color: var(--system-gray);
 }
 
