@@ -14,8 +14,8 @@ export const products = [
     company: 'OOO Вайлдберриз',
     amount: 2,
     count: 1,
-    newPrice: '522',
-    oldPrice: '1051',
+    newPrice: 522,
+    oldPrice: 1051,
   },
   {
     title: 'Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe',
@@ -28,8 +28,8 @@ export const products = [
     company: 'OOO Мегапрофстиль',
     amount: 300,
     count: 200,
-    newPrice: '2 100 047',
-    oldPrice: '2 300 047',
+    newPrice: 10500.235,
+    oldPrice: 11500.235,
   },
   {
     title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, \u00A0\u00A0\u00A0\u00A0\u00A0 Faber-Castell',
@@ -42,8 +42,8 @@ export const products = [
     company: 'OOO Вайлдберриз',
     amount: 2,
     count: 2,
-    newPrice: '494',
-    oldPrice: '950',
+    newPrice: 247,
+    oldPrice: 475,
   },
 ];
 
@@ -53,3 +53,5 @@ export const templateAvailableProduct = body.querySelector('#available-product')
 export const cards = body.querySelector('.main__cards');
 export const checkboxChooseAll = body.querySelector('.main__checkbox-label_choose-all');
 export const buttonUp = body.querySelector('.main__button-up');
+export const previewAvailableProducts = body.querySelector('.main__preview');
+export const name = body.querySelector('.main__name_type_choose-all');

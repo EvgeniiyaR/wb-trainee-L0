@@ -1,5 +1,5 @@
 import './index.css';
-import { amountProductsAll, products, templateAvailableProduct, cards, checkboxChooseAll, buttonUp } from '../utils/constants';
+import { amountProductsAll, products, templateAvailableProduct, cards, checkboxChooseAll, buttonUp, name } from '../utils/constants';
 
 amountProductsAll.textContent = products.length;
 
@@ -57,11 +57,11 @@ const generateAvailableProduct = (products) => {
 
     count.textContent = product.count;
 
-    if (product.newPrice.length <= 3) {
+    if (String(product.newPrice).length <= 3) {
       newPrice.classList.add('main__new-price_type_size');
     }
-    newPrice.textContent = product.newPrice;
-    oldPrice.textContent = `${product.oldPrice} сом`;
+    newPrice.textContent = (product.newPrice * product.count).toLocaleString();
+    oldPrice.textContent = `${(product.oldPrice * product.count).toLocaleString()} сом`;
 
     cards.append(clone);
   })
@@ -86,6 +86,17 @@ const chooseAll = (e) => {
 const hiddenAvailableProducts = () => {
   cards.classList.toggle('main__card_inactive');
   buttonUp.classList.toggle('main__button-up_inactive');
+  checkboxChooseAll.classList.toggle('main__checkbox-label_inactive');
+
+  const amount = products.reduce((countAll, currentProduct) => countAll + currentProduct.count, 0);
+  const price = products.reduce((countAll, currentProduct) => countAll + (currentProduct.newPrice * currentProduct.count), 0);
+
+  name.classList.toggle('main__name_type_hidden');
+  if (name.classList.contains('main__name_type_hidden')) {
+    name.textContent = `${amount.toLocaleString()} товара · ${price.toLocaleString()} сом`;
+  } else {
+    name.textContent = 'Выбрать все';
+  }
 };
 
 export const buttonsPlus = document.querySelectorAll('.main__button-count_type_plus');
