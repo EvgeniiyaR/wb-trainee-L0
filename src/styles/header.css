@@ -78,7 +78,7 @@
   width: 100%;
   font-weight: 400;
   line-height: 1.33;
-  color: var(--system-white);
+  color: rgba(255, 255, 255, .5);
   opacity: 5;
   background-color: transparent;
   border: none;
@@ -160,8 +160,7 @@
   font-weight: 700;
   right: 3px;
   top: -6px;
-  width: 16px;
-  height: 16px;
+  padding: 2px 6px;
   background-color: var(--system-red);
   border-radius: 16px;
   color: var(--system-white);
