@@ -157,7 +157,7 @@
                 <p class="main__total-text main__total-text_type_secondary">Обратная доставка товаров на склад при отказе — <span class="main__total-text main__total-text_type_secondary main__total-text_type_free">бесплатно</span></p>
               </div>
             </div>
-            <div class="main__container-total-payment">
+            <form class="main__container-total-payment" name="order">
               <div class="main__total-payment">
                 <div class="main__total-title">
                   <p class="main__total-text main__total-text_type_subtitle">Оплата картой</p>
@@ -180,14 +180,14 @@
                   <p class="main__total-text main__total-text_type_secondary">Спишем оплату с карты при получении</p>
                 </div>
               </div>
-            </div>
-            <div class="main__container-total-confirmation">
-              <button class="main__total-button" type="click">Заказать</button>
+            </form>
+            <form class="main__container-total-confirmation" name="order" id="form-submit">
+              <button class="main__total-button" type="submit">Заказать</button>
               <div class="main__total-confirmation">
                 <div class="main__total-confirm-icon"></div>
                 <p class="main__total-text main__total-text_type_secondary">Соглашаюсь с правилами пользования торговой площадкой и возврата</p>
               </div>
-            </div>
+            </form>
           </div>
         </section>
         <section class="main__missing-items" aria-label="Товаров нет в наличии">
@@ -220,10 +220,10 @@
             </template>
           </ul>
         </section>
-        <section class="main__delivery">
-          <div class="main__delivery-container-title">
-            <h2 class="main__delivery-title">Способ доставки</h2>
-            <button class="main__delivery-button-edit" type="click">Изменить</button>
+        <section class="main__block main__block_type_delivery">
+          <div class="main__container-title-extra">
+            <h2 class="main__title-extra">Способ доставки</h2>
+            <button class="main__button-edit main__button-edit_type_delivery" type="click">Изменить</button>
           </div>
           <div class="main__delivery-container">
             <p class="main__delivery-subtitle">Пункт выдачи</p>
@@ -269,6 +269,52 @@
             <div class="main__total-info-icon"></div>
             <p class="main__total-text main__total-text_type_secondary">Обратная доставка товаров на склад при отказе — <span class="main__total-text main__total-text_type_secondary main__total-text_type_free">бесплатно</span></p>
           </div>
+        </section>
+        <section class="main__block main__block_type_payment">
+          <div class="main__container-title-extra">
+            <h2 class="main__title-extra">Способ оплаты</h2>
+            <button class="main__button-edit main__button-edit_type_payment" type="click">Изменить</button>
+          </div>
+          <div class="main__container-payment-card">
+            <div class="main__container-total-card-extra">
+              <div class="main__container-total-card">
+                <div class="main__total-card"></div>
+                <p class="popup__card-number">1234 12•• •••• 1234</p>
+              </div>
+              <p class="popup__card-number">01/30</p>
+            </div>
+            <p class="main__total-text main__total-text_type_secondary main__total-text_type_payment">Спишем оплату с карты при получении</p>
+          </div>
+        </section>
+        <section class="main__block main__block_type_recipient">
+          <h2 class="main__title-extra">Получатель</h2>
+          <form class="main__container-input" name="order" id="form-inputs">
+            <label class="main__label main__label_size_l">
+              <p class="main__input-text"></p>
+              <input class="main__input" type="text" name="first-name" placeholder="Имя" id="first-name">
+              <p class="main__input-name">Имя</p>
+            </label>
+            <label class="main__label main__label_size_l">
+              <p class="main__input-text"></p>
+              <input class="main__input" type="text" name="last-name" placeholder="Фамилия" id="last-name">
+              <p class="main__input-name">Фамилия</p>
+            </label>
+            <label class="main__label main__label_size_m">
+              <p class="main__input-text"></p>
+              <input class="main__input" type="email" name="email" placeholder="Почта" id="email">
+              <p class="main__input-name">Почта</p>
+            </label>
+            <label class="main__label main__label_size_m">
+              <p class="main__input-text"></p>
+              <input class="main__input" type="tel" name="phone-number" pattern="^\+7 \d{3} \d{3}-\d{2}-\d{2}$" placeholder="Телефон" id="phone-number">
+              <p class="main__input-name">Телефон</p>
+            </label>
+            <label class="main__label main__label_size_m">
+              <p class="main__input-text">Для таможенного оформления</p>
+              <input class="main__input" type="text" name="inn-number" placeholder="ИНН" id="inn-number">
+              <p class="main__input-name">ИНН</p>
+            </label>
+          </form>
         </section>
       </div>
     </div>
