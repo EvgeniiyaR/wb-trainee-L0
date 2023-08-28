@@ -76,7 +76,6 @@
 
 .main__checkbox-label {
   display: flex;
-  gap: 11px;
 }
 
 .main__checkbox-label_inactive {
@@ -607,6 +606,18 @@
   border-radius: 4px;
 }
 
+.main__total-card_type_visa {
+  background-image: url(../assets/images/visa.svg);
+}
+
+.main__total-card_type_mastercard {
+  background-image: url(../assets/images/mastercard.svg);
+}
+
+.main__total-card_type_maestro {
+  background-image: url(../assets/images/maestro.svg);
+}
+
 .main__container-total-payment-checkbox {
   display: flex;
   flex-direction: column;
@@ -627,7 +638,7 @@
   border-radius: 8px;
   background-color: var(--system-magenta);
   width: 100%;
-  color: var(--system-white, #FFF);
+  color: var(--system-white);
   text-align: center;
   font-size: 16px;
   font-weight: 700;
@@ -668,9 +679,10 @@
   transition: visibility .2s,opacity .2s linear;
   opacity: 0;
   visibility: hidden;
+  z-index: 99;
 }
 
-.popup_opened {
+.popup__opened {
   opacity: 1;
   visibility: visible;
 }
@@ -680,6 +692,10 @@
   border-radius: 16px;
   background-color: var(--background-white);
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.20);
+  padding: 15px 20px 23px 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
 }
 
 .popup__container_type_delivery {
@@ -690,6 +706,12 @@
   width: 400px;
 }
 
+.popup__container-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .popup__title {
   margin: 0;
   font-size: 20px;
@@ -697,3 +719,240 @@
   line-height: 1.4;
   letter-spacing: -0.2px;
 }
+
+.popup__button-close {
+  border: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-image: url(../assets/images/search-close.svg);
+}
+
+.popup__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.popup__card {
+  display: flex;
+  gap: 8px;
+}
+
+.popup__container-radio {
+  display: flex;
+  gap: 8px;
+}
+
+.popup__radio-label {
+  display: flex;
+}
+
+.popup__radio-label_type_address {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.popup__radio-label_type_delivery {
+  position: relative;
+  width: 224px;
+  justify-content: center;
+}
+
+.popup__radio-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.popup__radio-span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.popup__radio-span::before {
+  box-sizing: border-box;
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 50%;
+}
+
+.popup__radio-span_type_delivery::before {
+  width: 224px;
+  height: 36px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  border: 2px solid rgba(203, 17, 171, 0.15);
+  border-radius: 20px;
+  z-index: 0;
+  transition: border-color .3s;
+}
+
+.popup__radio-input:not(:disabled):not(:checked) + .popup__radio-span:hover::before,
+.popup__radio-input:not(:disabled):checked + .popup__radio-span:hover::before {
+  border-color: #f4b3ff;
+  cursor: pointer;
+}
+
+.popup__radio-input_type_delivery:not(:disabled):not(:checked) + .popup__radio-span_type_delivery:hover::before,
+.popup__radio-input_type_delivery:not(:disabled):checked + .popup__radio-span_type_delivery:hover::before {
+  border-color: var(--system-magenta);
+  cursor: pointer;
+}
+
+.popup__radio-input:not(:disabled):active + .popup__radio-span::before {
+  background-color: #f4b3ff;
+  border-color: #f4b3ff;
+}
+
+.popup__radio-input_type_delivery:not(:disabled):active + .popup__radio-span_type_delivery::before {
+  background-color: transparent;
+  border-color: #f4b3ff;
+}
+
+.popup__radio-input:focus + .popup__radio-span::before {
+  box-shadow: 0 0 0 0.2rem rgba(162, 18, 150, 0.25);
+}
+
+.popup__radio-input_type_delivery:focus + .popup__radio-span_type_delivery::before {
+  border-radius: 24px;
+  border: 2px solid var(--system-magenta);
+  box-shadow: none;
+}
+
+.popup__radio-input:focus:not(:checked) + .popup__radio-span::before {
+  border-color: #e380ff;
+}
+
+.popup__radio-input_type_delivery:focus:not(:checked) + .popup__radio-span_type_delivery::before {
+  border-color: var(--system-magenta);
+}
+
+.popup__radio-input:checked + .popup__radio-span::before {
+  background-image: url(../assets/images/radio.svg);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+
+.popup__radio-input_type_delivery:checked + .popup__radio-span_type_delivery::before {
+  border-radius: 24px;
+  border: 2px solid var(--system-magenta);
+  background: none;
+}
+
+.popup__radio-input:disabled + .popup__radio-span::before {
+  background-color: #e9ecef;
+}
+
+.popup__radio-title {
+  margin: 8px 0;
+}
+
+.popup__card-number {
+  color: var(--text-black);
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.popup__button {
+  border: none;
+  margin-top: 122px;
+  border-radius: 8px;
+  background-color: var(--system-magenta);
+  width: 164px;
+  color: var(--system-white);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 7.5px 0 12.5px;
+}
+
+.popup__button_type_address {
+  margin-top: 67px;
+}
+
+.popup__container-delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.popup__container-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup__subtitle {
+  margin: 0;
+  color: var(--text-black, #000);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.23;
+}
+
+.popup__addresses {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popup__address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.popup__container-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.popup__text-address {
+  margin: 0;
+  color: var(--text-black);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  height: 24px;
+}
+
+.popup__button-basket {
+  border: none;
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/basket-address.svg);
+  background-size: 20px 20px;
+  transition: background-image .3s;
+}
+
+.popup__button-basket:hover {
+  cursor: pointer;
+  background-image: url(../assets/images/basket-address-hover.svg);
+}
+

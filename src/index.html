@@ -193,16 +193,113 @@
       </div>
     </div>
   </main>
-  <div class="popup popup_type_delivery">
+  <div class="popup popup_type_delivery popup__opened">
     <div class="popup__container popup__container_type_delivery">
-      <h1 class="popup__title">Способ доставки</h1>
-      <button></button>
+      <div class="popup__container-title">
+        <h1 class="popup__title">Способ доставки</h1>
+        <button class="popup__button-close" type="click"></button>
+      </div>
+      <div class="popup__container-delivery">
+        <div class="popup__container-radio">
+          <label class="popup__radio-label popup__radio-label_type_delivery">
+            <input class="popup__radio-input popup__radio-input_type_delivery" type="radio" name="delivery">
+            <span class="popup__radio-span popup__radio-span_type_delivery"></span>
+            <p class="popup__radio-title">В пункт выдачи</p>
+          </label>
+          <label class="popup__radio-label popup__radio-label_type_delivery">
+            <input class="popup__radio-input popup__radio-input_type_delivery" type="radio" name="delivery" checked>
+            <span class="popup__radio-span popup__radio-span_type_delivery"></span>
+            <p class="popup__radio-title">Курьером</p>
+          </label>
+        </div>
+        <div class="popup__container-addresses">
+          <p class="popup__subtitle">Мои адреса</p>
+          <ul class="popup__addresses">
+            <li class="popup__address">
+              <div class="popup__container-address">
+                <label class="popup__radio-label popup__radio-label_type_address">
+                  <input class="popup__radio-input" type="radio" name="address">
+                  <span class="popup__radio-span"></span>
+                </label>
+                <p class="popup__text-address">Бишкек, улица Табышалиева, 57</p>
+              </div>
+              <button class="popup__button-basket" type="click"></button>
+            </li>
+            <li class="popup__address">
+              <div class="popup__container-address">
+                <label class="popup__radio-label popup__radio-label_type_address">
+                  <input class="popup__radio-input" type="radio" name="address">
+                  <span class="popup__radio-span"></span>
+                </label>
+                <p class="popup__text-address">Бишкек, улица Жукеева-Пудовкина, 77/1</p>
+              </div>
+              <button class="popup__button-basket" type="click"></button>
+            </li>
+            <li class="popup__address">
+              <div class="popup__container-address">
+                <label class="popup__radio-label popup__radio-label_type_address">
+                  <input class="popup__radio-input" type="radio" name="address">
+                  <span class="popup__radio-span"></span>
+                </label>
+                <p class="popup__text-address">Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1</p>
+              </div>
+              <button class="popup__button-basket" type="click"></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="popup__button popup__button_type_address" type="click">Выбрать</button>
     </div>
   </div>
-  <div class="popup popup_type_payment popup_opened">
+  <div class="popup popup_type_payment">
     <div class="popup__container popup__container_type_payment">
-      <h1 class="popup__title">Способ оплаты</h1>
-      <button></button>
+      <div class="popup__container-title">
+        <h1 class="popup__title">Способ оплаты</h1>
+        <button class="popup__button-close" type="click"></button>
+      </div>
+      <div class="popup__cards">
+        <div class="popup__card">
+          <label class="popup__radio-label">
+            <input class="popup__radio-input" type="radio" name="payment">
+            <span class="popup__radio-span"></span>
+          </label>
+          <div class="main__container-total-card">
+            <div class="main__total-card"></div>
+            <p class="popup__card-number">1234 12•• •••• 1234</p>
+          </div>
+        </div>
+        <div class="popup__card">
+          <label class="popup__radio-label">
+            <input class="popup__radio-input" type="radio" name="payment">
+            <span class="popup__radio-span"></span>
+          </label>
+          <div class="main__container-total-card">
+            <div class="main__total-card main__total-card_type_visa"></div>
+            <p class="popup__card-number">1234 12•• •••• 1234</p>
+          </div>
+        </div>
+        <div class="popup__card">
+          <label class="popup__radio-label">
+            <input class="popup__radio-input" type="radio" name="payment">
+            <span class="popup__radio-span"></span>
+          </label>
+          <div class="main__container-total-card">
+            <div class="main__total-card main__total-card_type_mastercard"></div>
+            <p class="popup__card-number">1234 12•• •••• 1234</p>
+          </div>
+        </div>
+        <div class="popup__card">
+          <label class="popup__radio-label">
+            <input class="popup__radio-input" type="radio" name="payment">
+            <span class="popup__radio-span"></span>
+          </label>
+          <div class="main__container-total-card">
+            <div class="main__total-card main__total-card_type_maestro"></div>
+            <p class="popup__card-number">1234 12•• •••• 1234</p>
+          </div>
+        </div>
+        <button class="popup__button" type="click">Выбрать</button>
+      </div>
     </div>
   </div>
   <footer>
