@@ -46,7 +46,8 @@
   grid-template-areas:
     "title total"
     "available-products total"
-    "missing-products total";
+    "missing-products total"
+    "delivery total";
   column-gap: 32px;
 }
 
@@ -110,30 +111,25 @@
   background-size: 50% 50%;
 }
 
-/* стили при наведении курсора на checkbox */
 .main__checkbox-input:not(:disabled):not(:checked) + .main__checkbox-span:hover::before,
 .main__checkbox-input:not(:disabled):checked + .main__checkbox-span:hover::before {
   border-color: #f4b3ff;
   cursor: pointer;
 }
 
-/* стили для активного чекбокса (при нажатии на него) */
 .main__checkbox-input:not(:disabled):active + .main__checkbox-span::before {
   background-color: #f4b3ff;
   border-color: #f4b3ff;
 }
 
-/* стили для чекбокса, находящегося в фокусе */
 .main__checkbox-input:focus + .main__checkbox-span::before {
   box-shadow: 0 0 0 0.2rem rgba(162, 18, 150, 0.25);
 }
 
-/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
 .main__checkbox-input:focus:not(:checked) + .main__checkbox-span::before {
   border-color: #e380ff;
 }
 
-/* стили для чекбокса, находящегося в состоянии checked */
 .main__checkbox-input:checked + .main__checkbox-span::before {
   border-color: var(--system-magenta);
   background-color: var(--system-magenta);
@@ -143,7 +139,6 @@
   background-position: center;
 }
 
-/* стили для чекбокса, находящегося в состоянии disabled */
 .main__checkbox-input:disabled + .main__checkbox-span::before {
   background-color: #e9ecef;
 }
@@ -565,7 +560,7 @@
   gap: 8px;
   padding: 8px 8px 12px;
   border-radius: 8px;
-  background: var(--background-smoky);
+  background-color: var(--background-smoky);
 }
 
 .main__total-info-icon {
@@ -1007,4 +1002,130 @@
 
 .main__container-description_type_missing-product {
   width: 309px;
+}
+
+.main__delivery {
+  grid-area: delivery;
+  margin-top: 40px;
+  max-width: 891px;
+  border-radius: 16px;
+  background-color: var(--background-white);
+  padding: 18px 18px 24px 23px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main__delivery-container-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__delivery-title {
+  margin: 0;
+  color: var(--text-black);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+}
+
+.main__delivery-button-edit {
+  border: none;
+  background-color: transparent;
+  color: var(--system-magenta);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.main__delivery-container {
+  display: flex;
+  gap: 32px;
+}
+
+.main__delivery-subtitle {
+  margin: 0;
+  color: var(--text-black);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  width: 153px;
+}
+
+.main__delivery-container-address-rating-time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.main__delivery-container-rating-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main__delivery-container-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.main__delivery-text {
+  margin: 0;
+  color: var(--text-black);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.main__delivery-text_type_small {
+  font-size: 13px;
+  line-height: 1.23;
+}
+
+.main__delivery-rating-icon {
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/star.svg);
+  background-size: 12px 12px;
+}
+
+.main__total-info_type_delivery {
+  background-color: transparent;
+  border-radius: none;
+  gap: 8px;
+  padding: 0;
+}
+
+.main__delivery-container-image-amount {
+  display: flex;
+  gap: 8px;
+}
+
+.main__delivery-container-image {
+  position: relative;
+}
+
+.main__delivery-image {
+  width: 40px;
+  height: 56px;
+}
+
+.main__delivery-amount {
+  box-sizing: border-box;
+  align-items: center;
+  background-color: var(--system-red);
+  border-radius: 16px;
+  color: var(--system-white);
+  display: flex;
+  font-size: 10px;
+  font-weight: 600;
+  justify-content: center;
+  position: absolute;
+  right: -5px;
+  top: -6px;
+  padding: 2px 5px;
 }

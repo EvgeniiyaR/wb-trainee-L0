@@ -48,7 +48,7 @@
   <main class="main">
     <div class="main__container">
       <div class="main__container-size">
-        <h1 class="main__title">Корзина</h1>
+        <h2 class="main__title">Корзина</h2>
         <section class="main__available-goods" aria-label="Доступные товары для покупки">
           <div class="main__preview">
             <label class="main__checkbox-label main__checkbox-label_choose-all">
@@ -125,7 +125,7 @@
           <div class="main__container-total">
             <div class="main__container-total-title">
               <div class="main__total-title">
-                <p class="main__total-text main__total-text_type_main">Итого</p>
+                <h2 class="main__total-text main__total-text_type_main">Итого</h2>
                 <p class="main__total-text main__total-text_type_main main__total-text_type_total">2 101 063 сом</p>
               </div>
               <div>
@@ -220,13 +220,63 @@
             </template>
           </ul>
         </section>
+        <section class="main__delivery">
+          <div class="main__delivery-container-title">
+            <h2 class="main__delivery-title">Способ доставки</h2>
+            <button class="main__delivery-button-edit" type="click">Изменить</button>
+          </div>
+          <div class="main__delivery-container">
+            <p class="main__delivery-subtitle">Пункт выдачи</p>
+            <div class="main__delivery-container-address-rating-time">
+              <p class="main__delivery-text">Бишкек, улица Ахматбека Суюмбаева, 12/1</p>
+              <div class="main__delivery-container-rating-time">
+                <div class="main__delivery-container-rating">
+                  <div class="main__delivery-rating-icon"></div>
+                  <p class="main__delivery-text main__delivery-text_type_small">4.99</p>
+                </div>
+                <p class="main__delivery-text main__delivery-text_type_small">Ежедневно с 10 до 21</p>
+              </div>
+            </div>
+          </div>
+          <div class="main__delivery-container">
+            <p class="main__delivery-subtitle">Стоимость доставки</p>
+            <p class="main__delivery-text">Бесплатно</p>
+          </div>
+          <div class="main__delivery-container">
+            <p class="main__delivery-subtitle">5—6 февраля</p>
+            <div class="main__delivery-container-image-amount">
+              <div class="main__delivery-container-image">
+                <img class="main__delivery-image" src="./assets/images/templates/template-1.jpg" alt="Фото товара">
+              </div>
+              <div class="main__delivery-container-image">
+                <img class="main__delivery-image" src="./assets/images/templates/template-2.jpg" alt="Фото товара">
+                <div class="main__delivery-amount">184</div>
+              </div>
+              <div class="main__delivery-container-image">
+                <img class="main__delivery-image" src="./assets/images/templates/template-3.jpg" alt="Фото товара">
+                <div class="main__delivery-amount">2</div>
+              </div>
+            </div>
+          </div>
+          <div class="main__delivery-container">
+            <p class="main__delivery-subtitle">7—8 февраля</p>
+            <div class="main__delivery-container-image">
+              <img class="main__delivery-image" src="./assets/images/templates/template-2.jpg" alt="Фото товара">
+              <div class="main__delivery-amount">16</div>
+            </div>
+          </div>
+          <div class="main__total-info main__total-info_type_delivery">
+            <div class="main__total-info-icon"></div>
+            <p class="main__total-text main__total-text_type_secondary">Обратная доставка товаров на склад при отказе — <span class="main__total-text main__total-text_type_secondary main__total-text_type_free">бесплатно</span></p>
+          </div>
+        </section>
       </div>
     </div>
   </main>
   <div class="popup popup_type_delivery">
     <form class="popup__container popup__container_type_delivery">
       <div class="popup__container-title">
-        <h1 class="popup__title">Способ доставки</h1>
+        <h2 class="popup__title">Способ доставки</h2>
         <button class="popup__button-close popup__button-close_type_delivery" type="click"></button>
       </div>
       <div class="popup__container-delivery">
@@ -284,7 +334,7 @@
   <div class="popup popup_type_payment">
     <form class="popup__container popup__container_type_payment">
       <div class="popup__container-title">
-        <h1 class="popup__title">Способ оплаты</h1>
+        <h2 class="popup__title">Способ оплаты</h2>
         <button class="popup__button-close popup__button-close_type_payment" type="click"></button>
       </div>
       <ul class="popup__cards">
