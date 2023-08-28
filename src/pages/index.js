@@ -1,5 +1,23 @@
 import './index.css';
-import { amountProductsAll, products, templateAvailableProduct, cards, checkboxChooseAll, buttonUp, name } from '../utils/constants';
+import {
+  amountProductsAll,
+  products,
+  templateAvailableProduct,
+  templateMissingProduct,
+  cards,
+  missingCards,
+  checkboxChooseAll,
+  buttonUpAvailableProducts,
+  buttonUpMissingProducts,
+  name,
+  buttonEditDelivery,
+  buttonEditPayment,
+  popupDelivery,
+  popupPayment,
+  buttonClosePopupDelivery,
+  buttonClosePopupPayment,
+  checkboxChoosePayment,
+  buttonTotal } from '../utils/constants';
 
 amountProductsAll.textContent = products.length;
 
@@ -27,10 +45,10 @@ const generateAvailableProduct = (products) => {
 
     if (product.attributes.color !== '' || product.attributes.size !== '') {
       if (product.attributes.color !== '') {
-      color.textContent = `Цвет: ${product.attributes.color}`;
+        color.textContent = `Цвет: ${product.attributes.color}`;
       }
       if (product.attributes.size !== '') {
-      size.textContent = `Размер: ${product.attributes.size}`;
+        size.textContent = `Размер: ${product.attributes.size}`;
       }
     } else {
       attributes.style.display = 'none';
@@ -69,6 +87,37 @@ const generateAvailableProduct = (products) => {
 
 generateAvailableProduct(products);
 
+const generateMissingProduct = (products) => {
+  products.forEach((product, index) =>  {
+    const clone = templateMissingProduct.content.cloneNode(true);
+    const element =  clone.querySelector('.main__card');
+    element.dataset.id = index;
+    const image = clone.querySelector('.main__image');
+    const name = clone.querySelector('.main__name');
+    const color = clone.querySelector('.main__attribute_type_color');
+    const size = clone.querySelector('.main__attribute_type_size');
+    const attributes = clone.querySelector('.main__attributes');
+
+    image.src = product.image;
+    name.textContent = product.title;
+
+    if (product.attributes.color !== '' || product.attributes.size !== '') {
+      if (product.attributes.color !== '') {
+        color.textContent = `Цвет: ${product.attributes.color}`;
+      }
+      if (product.attributes.size !== '') {
+        size.textContent = `Размер: ${product.attributes.size}`;
+      }
+    } else {
+      attributes.style.display = 'none';
+    }
+
+    missingCards.append(clone);
+  })
+}
+
+generateMissingProduct(products);
+
 export const checkboxChooseProducts = document.querySelectorAll('.main__checkbox-input_choose-product');
 
 const chooseAll = (e) => {
@@ -85,7 +134,7 @@ const chooseAll = (e) => {
 
 const hiddenAvailableProducts = () => {
   cards.classList.toggle('main__card_inactive');
-  buttonUp.classList.toggle('main__button-up_inactive');
+  buttonUpAvailableProducts.classList.toggle('main__button-up_inactive');
   checkboxChooseAll.classList.toggle('main__checkbox-label_inactive');
 
   const amount = products.reduce((countAll, currentProduct) => countAll + currentProduct.count, 0);
@@ -97,6 +146,11 @@ const hiddenAvailableProducts = () => {
   } else {
     name.textContent = 'Выбрать все';
   }
+};
+
+const hiddenMissingProducts = () => {
+  missingCards.classList.toggle('main__card_inactive');
+  buttonUpMissingProducts.classList.toggle('main__button-up_inactive');
 };
 
 export const buttonsPlus = document.querySelectorAll('.main__button-count_type_plus');
@@ -118,7 +172,7 @@ const incrementCount = (e) => {
       buttonMinus.disabled = false;
     }
   }
-}
+};
 
 const decrementCount = (e) => {
   const buttonMinus = e.target;
@@ -136,7 +190,7 @@ const decrementCount = (e) => {
       buttonPlus.disabled = false;
     }
   }
-}
+};
 
 buttonsPlus.forEach((button) => {
   button.addEventListener('click', incrementCount);
@@ -147,4 +201,38 @@ buttonsMinus.forEach((button) => {
 });
 
 checkboxChooseAll.addEventListener('input', chooseAll);
-buttonUp.addEventListener('click', hiddenAvailableProducts);
+buttonUpAvailableProducts.addEventListener('click', hiddenAvailableProducts);
+buttonUpMissingProducts.addEventListener('click',hiddenMissingProducts);
+
+const openPopupDelivery = () => {
+  popupDelivery.classList.add('popup__opened');
+};
+
+const openPopupPayment = () => {
+  popupPayment.classList.add('popup__opened');
+};
+
+const closePopupDelivery = () => {
+  popupDelivery.classList.remove('popup__opened');
+};
+
+const closePopupPayment = () => {
+  popupPayment.classList.remove('popup__opened');
+};
+
+buttonEditDelivery.addEventListener('click', openPopupDelivery);
+buttonEditPayment.addEventListener('click', openPopupPayment);
+
+buttonClosePopupDelivery.addEventListener('click', closePopupDelivery);
+buttonClosePopupPayment.addEventListener('click', closePopupPayment);
+
+const changeChoosePayment = (e) => {
+  if (e.target.checked === true) {
+    const price = document.querySelector('.main__total-text_type_total').textContent;
+    buttonTotal.textContent = `Оплатить ${price}`;
+  } else {
+    buttonTotal.textContent = 'Заказать';
+  }
+};
+
+checkboxChoosePayment.addEventListener('input', changeChoosePayment);

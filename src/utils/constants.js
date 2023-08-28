@@ -32,7 +32,7 @@ export const products = [
     oldPrice: 11500.235,
   },
   {
-    title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, \u00A0\u00A0\u00A0\u00A0\u00A0 Faber-Castell',
+    title: 'Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell',
     image: templateThree,
     attributes: {
       color: '',
@@ -50,8 +50,19 @@ export const products = [
 const body = document.querySelector('.body');
 export const amountProductsAll = body.querySelector('.header__amount');
 export const templateAvailableProduct = body.querySelector('#available-product');
+export const templateMissingProduct = body.querySelector('#missing-product');
 export const cards = body.querySelector('.main__cards');
+export const missingCards = body.querySelector('.main__cards_type_missing-product');
 export const checkboxChooseAll = body.querySelector('.main__checkbox-label_choose-all');
-export const buttonUp = body.querySelector('.main__button-up');
+export const buttonUpAvailableProducts = body.querySelector('.main__button-up_type_available-product');
+export const buttonUpMissingProducts = body.querySelector('.main__button-up_type_missing-product');
 export const previewAvailableProducts = body.querySelector('.main__preview');
 export const name = body.querySelector('.main__name_type_choose-all');
+export const buttonEditDelivery = body.querySelector('.main__button-card_type_delivery');
+export const buttonEditPayment = body.querySelector('.main__button-card_type_payment');
+export const popupDelivery = body.querySelector('.popup_type_delivery');
+export const popupPayment = body.querySelector('.popup_type_payment');
+export const buttonClosePopupDelivery = body.querySelector('.popup__button-close_type_delivery');
+export const buttonClosePopupPayment = body.querySelector('.popup__button-close_type_payment');
+export const checkboxChoosePayment = body.querySelector('.main__checkbox-input_choose_payment');
+export const buttonTotal = body.querySelector('.main__total-button');

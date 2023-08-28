@@ -56,7 +56,7 @@
               <span class="main__checkbox-span"></span>
             </label>
             <p class="main__name main__name_type_choose-all">Выбрать все</p>
-            <button class="main__button-up" type="click"></button>
+            <button class="main__button-up main__button-up_type_available-product" type="click"></button>
           </div>
           <ul class="main__cards">
             <template id="available-product">
@@ -126,7 +126,7 @@
             <div class="main__container-total-title">
               <div class="main__total-title">
                 <p class="main__total-text main__total-text_type_main">Итого</p>
-                <p class="main__total-text main__total-text_type_main">2 101 063 сом</p>
+                <p class="main__total-text main__total-text_type_main main__total-text_type_total">2 101 063 сом</p>
               </div>
               <div>
                 <div class="main__total-title">
@@ -190,14 +190,44 @@
             </div>
           </div>
         </section>
+        <section class="main__missing-items" aria-label="Товаров нет в наличии">
+          <div class="main__preview">
+            <p class="main__name main__name_type_choose-all main__name_type_hidden">Отсутствуют · 3 товара</p>
+            <button class="main__button-up main__button-up_type_missing-product" type="click"></button>
+          </div>
+          <ul class="main__cards main__cards_type_missing-product">
+            <template id="missing-product">
+              <li class="main__card main__card_type_missing-product">
+                <div class="main__container-card-left">
+                  <img class="main__image main__image_type_missing-product" src="./assets/images/templates/template-1.jpg" alt="Фото отсутствующего товара">
+                  <div class="main__container-description main__container-description_type_missing-product">
+                    <p class="main__name main__name_type_missing-product"></p>
+                    <ul class="main__attributes">
+                      <li class="main__attribute main__attribute_type_color main__attribute_type_missing-product"></li>
+                      <li class="main__attribute main__attribute_type_size main__attribute_type_missing-product"></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="main__container-card-right">
+                  <div class="main__container-count-leftovers-buttons">
+                    <div class="main__container-buttons-card">
+                      <button class="main__button-card main__button-card_type_like" type="click"></button>
+                      <button class="main__button-card main__button-card_type_basket" type="click"></button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </section>
       </div>
     </div>
   </main>
-  <div class="popup popup_type_delivery popup__opened">
-    <div class="popup__container popup__container_type_delivery">
+  <div class="popup popup_type_delivery">
+    <form class="popup__container popup__container_type_delivery">
       <div class="popup__container-title">
         <h1 class="popup__title">Способ доставки</h1>
-        <button class="popup__button-close" type="click"></button>
+        <button class="popup__button-close popup__button-close_type_delivery" type="click"></button>
       </div>
       <div class="popup__container-delivery">
         <div class="popup__container-radio">
@@ -218,7 +248,7 @@
             <li class="popup__address">
               <div class="popup__container-address">
                 <label class="popup__radio-label popup__radio-label_type_address">
-                  <input class="popup__radio-input" type="radio" name="address">
+                  <input class="popup__radio-input" type="radio" name="address" checked>
                   <span class="popup__radio-span"></span>
                 </label>
                 <p class="popup__text-address">Бишкек, улица Табышалиева, 57</p>
@@ -248,27 +278,27 @@
           </ul>
         </div>
       </div>
-      <button class="popup__button popup__button_type_address" type="click">Выбрать</button>
-    </div>
+      <button class="popup__button popup__button_type_address" type="submit">Выбрать</button>
+    </form>
   </div>
   <div class="popup popup_type_payment">
-    <div class="popup__container popup__container_type_payment">
+    <form class="popup__container popup__container_type_payment">
       <div class="popup__container-title">
         <h1 class="popup__title">Способ оплаты</h1>
-        <button class="popup__button-close" type="click"></button>
+        <button class="popup__button-close popup__button-close_type_payment" type="click"></button>
       </div>
-      <div class="popup__cards">
-        <div class="popup__card">
+      <ul class="popup__cards">
+        <li class="popup__card">
           <label class="popup__radio-label">
-            <input class="popup__radio-input" type="radio" name="payment">
+            <input class="popup__radio-input" type="radio" name="payment" checked>
             <span class="popup__radio-span"></span>
           </label>
           <div class="main__container-total-card">
             <div class="main__total-card"></div>
             <p class="popup__card-number">1234 12•• •••• 1234</p>
           </div>
-        </div>
-        <div class="popup__card">
+        </li>
+        <li class="popup__card">
           <label class="popup__radio-label">
             <input class="popup__radio-input" type="radio" name="payment">
             <span class="popup__radio-span"></span>
@@ -277,8 +307,8 @@
             <div class="main__total-card main__total-card_type_visa"></div>
             <p class="popup__card-number">1234 12•• •••• 1234</p>
           </div>
-        </div>
-        <div class="popup__card">
+        </li>
+        <li class="popup__card">
           <label class="popup__radio-label">
             <input class="popup__radio-input" type="radio" name="payment">
             <span class="popup__radio-span"></span>
@@ -287,8 +317,8 @@
             <div class="main__total-card main__total-card_type_mastercard"></div>
             <p class="popup__card-number">1234 12•• •••• 1234</p>
           </div>
-        </div>
-        <div class="popup__card">
+        </li>
+        <li class="popup__card">
           <label class="popup__radio-label">
             <input class="popup__radio-input" type="radio" name="payment">
             <span class="popup__radio-span"></span>
@@ -297,10 +327,10 @@
             <div class="main__total-card main__total-card_type_maestro"></div>
             <p class="popup__card-number">1234 12•• •••• 1234</p>
           </div>
-        </div>
-        <button class="popup__button" type="click">Выбрать</button>
-      </div>
-    </div>
+        </li>
+        <button class="popup__button" type="submit">Выбрать</button>
+      </ul>
+    </form>
   </div>
   <footer>
 

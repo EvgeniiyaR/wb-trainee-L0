@@ -45,7 +45,8 @@
   display: grid;
   grid-template-areas:
     "title total"
-    "available-products total";
+    "available-products total"
+    "missing-products total";
   column-gap: 32px;
 }
 
@@ -184,7 +185,7 @@
 
 .main__cards {
   margin: 0;
-  padding: 11px 0 32px;
+  padding: 11px 0 9px;
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -193,8 +194,7 @@
 
 .main__card {
   display: flex;
-  /* justify-content: space-between; */
-  gap: 268px;
+  gap: 292px;
 }
 
 .main__card_inactive {
@@ -223,7 +223,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 275px;
+  width: 252px;
 }
 
 .main__attributes {
@@ -485,7 +485,7 @@
 
 .main__container-total {
   box-sizing: border-box;
-  width: 429px;
+  max-width: 429px;
   padding: 16px 24px 24px;
   background-color: var(--background-white);
   display: flex;
@@ -646,6 +646,10 @@
   padding: 7.5px 0 12.5px;
 }
 
+.main__total-button:hover {
+  cursor: pointer;
+}
+
 .main__container-total-confirmation {
   display: flex;
   flex-direction: column;
@@ -731,7 +735,14 @@
   background-image: url(../assets/images/search-close.svg);
 }
 
+.popup__button-close:hover {
+  cursor: pointer;
+}
+
 .popup__cards {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -884,6 +895,10 @@
   padding: 7.5px 0 12.5px;
 }
 
+.popup__button:hover {
+  cursor: pointer;
+}
+
 .popup__button_type_address {
   margin-top: 67px;
 }
@@ -956,3 +971,40 @@
   background-image: url(../assets/images/basket-address-hover.svg);
 }
 
+.main__missing-items {
+  grid-area: missing-products;
+  max-width: 891px;
+}
+
+.main__cards_type_missing-product {
+  padding: 11px 0 0;
+  gap: 32px;
+}
+
+.main__missing-cards {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  padding: 11px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.main__card_type_missing-product {
+  gap: 312px;
+}
+
+.main__image_type_missing-product {
+  margin: 0 16px 0 0;
+  filter: grayscale(100%);
+}
+
+.main__name_type_missing-product,
+.main__attribute_type_missing-product {
+  color: var(--system-gray);
+}
+
+.main__container-description_type_missing-product {
+  width: 309px;
+}
