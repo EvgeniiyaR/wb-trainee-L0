@@ -47,7 +47,7 @@ export const products = [
   },
 ];
 
-const body = document.querySelector('.body');
+export const body = document.querySelector('.body');
 export const amountProductsAll = body.querySelector('.header__amount');
 export const templateAvailableProduct = body.querySelector('#available-product');
 export const templateMissingProduct = body.querySelector('#missing-product');
@@ -66,3 +66,9 @@ export const buttonClosePopupDelivery = body.querySelector('.popup__button-close
 export const buttonClosePopupPayment = body.querySelector('.popup__button-close_type_payment');
 export const checkboxChoosePayment = body.querySelector('.main__checkbox-input_choose_payment');
 export const buttonTotal = body.querySelector('.main__total-button');
+export const buttonEditDeliveryExtra = body.querySelector('.main__button-edit_type_delivery');
+export const buttonEditPaymentExtra = body.querySelector('.main__button-edit_type_payment');
+export const totalPrice = body.querySelector('.main__total-text_type_total');
+export const countAmount = body.querySelector('.main__total-text_type_amount');
+export const oldTotalPrice = body.querySelector('.main__total-text_type_old-price');
+export const discount = body.querySelector('.main__total-text_type_discount');
