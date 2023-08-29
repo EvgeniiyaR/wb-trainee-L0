@@ -76,6 +76,7 @@ const validateLastName = (e) => {
 };
 
 const validateEmail = (e) => {
+  const target = e.target;
   const value = e.target.value;
   const error = e.target.parentElement.querySelector('.main__input-text');
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -83,13 +84,16 @@ const validateEmail = (e) => {
   if (pattern.test(value) || value === '') {
     error.textContent = '';
     error.classList.remove('main__input-text_type_error');
+    target.classList.remove('main__input_type_error');
   } else {
     error.textContent = 'Проверьте адрес электронной почты';
     error.classList.add('main__input-text_type_error');
+    target.classList.add('main__input_type_error');
   }
 };
 
 const formatEmail = (e) => {
+  const target = e.target;
   const input = e.target.value;
   const error = e.target.parentElement.querySelector('.main__input-text');
   const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -97,14 +101,19 @@ const formatEmail = (e) => {
   if (error.classList.contains('main__input-text_type_error')) {
     if (pattern.test(input) || input === '') {
       error.textContent = '';
+      target.classList.remove('main__input_type_error');
+      error.classList.remove('main__input-text_type_error');
     } else {
       error.textContent = 'Проверьте адрес электронной почты';
+      error.classList.add('main__input-text_type_error');
+      target.classList.add('main__input_type_error');
     }
   }
 };
 
 let formattedValuePhoneNumber = '';
 const formatPhoneNumber = (e) => {
+  const target = e.target;
   const input = e.target.value.replace(/\D/g, '');
   const error = e.target.parentElement.querySelector('.main__input-text');
   const pattern = /^\+7 \d{3} \d{3}-\d{2}-\d{2}$/;
@@ -127,14 +136,19 @@ const formatPhoneNumber = (e) => {
   if (error.classList.contains('main__input-text_type_error')) {
     if (pattern.test(formattedValuePhoneNumber) || input === '') {
       error.textContent = '';
+      target.classList.remove('main__input_type_error');
+      error.classList.remove('main__input-text_type_error');
     } else {
       error.textContent = 'Формат: +7 999 999-99-99';
+      error.classList.add('main__input-text_type_error');
+      target.classList.add('main__input_type_error');
     }
   }
   e.target.value = formattedValuePhoneNumber;
 };
 
 const validatePhoneNumber = (e) => {
+  const target = e.target;
   const value = e.target.value;
   const error = e.target.parentElement.querySelector('.main__input-text');
   const pattern = /^\+7 \d{3} \d{3}-\d{2}-\d{2}$/;
@@ -142,13 +156,16 @@ const validatePhoneNumber = (e) => {
   if (pattern.test(value) || value === '') {
     error.textContent = '';
     error.classList.remove('main__input-text_type_error');
+    target.classList.remove('main__input_type_error');
   } else {
     error.textContent = 'Формат: +7 999 999-99-99';
     error.classList.add('main__input-text_type_error');
+    target.classList.add('main__input_type_error');
   }
 };
 
 const validateInnNumber = (e) => {
+  const target = e.target;
   const value = e.target.value;
   const error = e.target.parentElement.querySelector('.main__input-text');
   const pattern = /\d/g;
@@ -156,26 +173,17 @@ const validateInnNumber = (e) => {
   if ((pattern.test(value) && value.length === 14) || value === '') {
     error.textContent = '';
     error.classList.remove('main__input-text_type_error');
+    target.classList.remove('main__input_type_error');
   } else {
     error.textContent = 'Проверьте ИНН';
     error.classList.add('main__input-text_type_error');
-  }
-};
-
-const preventNonNumeric = (e) => {
-  let count = 1;
-  if (e.key === 'Backspace') {
-    if (phoneNumber.value.length === 7 || phoneNumber.value.length === 11 || phoneNumber.value.length === 14) {
-      count = 2;
-    }
-    phoneNumber.value = phoneNumber.value.slice(0, formattedValuePhoneNumber.length - count);
-    formattedValuePhoneNumber = phoneNumber.value;
-    e.preventDefault();
+    target.classList.add('main__input_type_error');
   }
 };
 
 let formattedValueInnNumber = '';
 const formatInnNumber = (e) => {
+  const target = e.target;
   const input = e.target.value.replace(/\D/g, '');
   const error = e.target.parentElement.querySelector('.main__input-text');
   const pattern = /\d/g;
@@ -188,11 +196,27 @@ const formatInnNumber = (e) => {
   if (error.classList.contains('main__input-text_type_error')) {
     if ((pattern.test(formattedValueInnNumber) && formattedValueInnNumber.length === 14) || formattedValueInnNumber === '') {
       error.textContent = '';
+      error.classList.remove('main__input-text_type_error');
+      target.classList.remove('main__input_type_error');
     } else {
       error.textContent = 'Проверьте ИНН';
+      error.classList.add('main__input-text_type_error');
+      target.classList.add('main__input_type_error');
     }
   }
   e.target.value = formattedValueInnNumber;
+};
+
+const preventNonNumeric = (e) => {
+  let count = 1;
+  if (e.key === 'Backspace') {
+    if (phoneNumber.value.length === 7 || phoneNumber.value.length === 11 || phoneNumber.value.length === 14) {
+      count = 2;
+    }
+    phoneNumber.value = phoneNumber.value.slice(0, formattedValuePhoneNumber.length - count);
+    formattedValuePhoneNumber = phoneNumber.value;
+    e.preventDefault();
+  }
 };
 
 form.addEventListener('submit', validateForm);
