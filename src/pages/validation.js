@@ -18,30 +18,35 @@ const validateForm = (e) => {
   if (formData.firstName === '') {
     const error = firstName.parentElement.querySelector('.main__input-text');
     error.classList.add('main__input-text_type_error');
+    firstName.classList.add('main__input_type_error');
     error.textContent = 'Укажите имя';
   }
 
   if (formData.lastName === '') {
     const error = lastName.parentElement.querySelector('.main__input-text');
     error.classList.add('main__input-text_type_error');
+    lastName.classList.add('main__input_type_error');
     error.textContent = 'Введите фамилию';
   }
 
   if (formData.email === '') {
     const error = email.parentElement.querySelector('.main__input-text');
     error.classList.add('main__input-text_type_error');
+    email.classList.add('main__input_type_error');
     error.textContent = 'Укажите электронную почту';
   }
 
   if (formData.phoneNumber === '') {
     const error = phoneNumber.parentElement.querySelector('.main__input-text');
     error.classList.add('main__input-text_type_error');
+    phoneNumber.classList.add('main__input_type_error');
     error.textContent = 'Укажите номер телефона';
   }
 
   if (formData.innNumber === '') {
     const error = innNumber.parentElement.querySelector('.main__input-text');
     error.classList.add('main__input-text_type_error');
+    innNumber.classList.add('main__input_type_error');
     error.textContent = 'Укажите ИНН';
   }
 };
@@ -49,19 +54,25 @@ const validateForm = (e) => {
 const validateFirstName = (e) => {
   const value = e.target.value;
   const error = e.target.parentElement.querySelector('.main__input-text');
+  const input = e.target;
 
   if (value) {
     error.textContent = '';
+    error.classList.remove('main__input-text_type_error');
+    input.classList.remove('main__input_type_error');
   }
 };
 
 const formatName = (e) => {
-  const input = e.target.value;
+  const value = e.target.value;
   const error = e.target.parentElement.querySelector('.main__input-text');
+  const input = e.target;
 
   if (error.classList.contains('main__input-text_type_error')) {
-    if (input !== '') {
+    if (value !== '') {
       error.textContent = '';
+      input.classList.remove('main__input_type_error');
+      error.classList.remove('main__input-text_type_error');
     }
   }
 };
